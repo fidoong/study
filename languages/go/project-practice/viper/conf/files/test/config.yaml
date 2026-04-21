@@ -1,0 +1,12 @@
+app:
+  env: test
+  port: 8888
+  app_name: traffic-demo
+  app_url: http://test.example.com
+
+MySQL:
+  host: test-mysql.internal
+  port: 3306
+  user: test_user
+  password: test_pass_456
+  db_name: traffic_test

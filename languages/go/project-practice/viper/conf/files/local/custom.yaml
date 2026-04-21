@@ -1,0 +1,8 @@
+white_list:
+  user_id: # 用户列表
+    - 063105015
+    - 063105024
+    - 063105028
+  request_path: # 访问路径
+    - /api/v1/users
+    - /api/v1/ops

@@ -1,0 +1,8 @@
+white_list:
+  user_id:
+    - dev_admin_01
+    - dev_admin_02
+  request_path:
+    - /api/v1/users
+    - /api/v1/ops
+    - /api/v1/debug

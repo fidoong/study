@@ -1,0 +1,12 @@
+app:
+  env: prod
+  port: 80
+  app_name: traffic-demo
+  app_url: https://api.example.com
+
+MySQL:
+  host: prod-mysql.cluster.internal
+  port: 3306
+  user: ${MYSQL_USER}        # 生产密码建议走环境变量或密钥管理服务
+  password: ${MYSQL_PASSWORD}
+  db_name: traffic_prod

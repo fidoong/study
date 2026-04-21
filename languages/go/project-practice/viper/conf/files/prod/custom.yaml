@@ -1,0 +1,4 @@
+white_list:
+  user_id: []
+  request_path:
+    - /api/v1/users
