@@ -1,12 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"sync"
-	"time"
-)
-
-var wg sync.WaitGroup
+import "fmt"
 
 // func main() {
 // 	for i := range 10 {
@@ -105,7 +99,126 @@ var wg sync.WaitGroup
 // 	fmt.Println("sum", v)
 // }
 
+// func main() {
+// 	ch := make(chan int)
+// 	go func(ch chan int) {
+// 		for v := range ch {
+// 			fmt.Println("value", v)
+// 		}
+// 	}(ch)
+
+// 	for i := range 10 {
+// 		ch <- i
+// 	}
+// 	close(ch)
+// 	fmt.Println("发送成功")
+// }
+
+// func main() {
+// 	ch1 := make(chan int)
+// 	ch2 := make(chan int)
+
+// 	go func() {
+// 		// ch1 <- 1
+// 	}()
+
+// 	go func(ch2 chan int) {
+// 		ch2 <- 1
+// 		close(ch2)
+// 	}(ch2)
+
+// 	select {
+// 	case v := <-ch1:
+// 		fmt.Println("ch1", v)
+// 	case <- time.After(3 * time.Second):
+// 		fmt.Println("超时！")
+// 	}
+
+// }
+
+// func main() {
+// 	ch := make(chan int, 1)
+// 	for i := 1; i <= 10; i++ {
+// 		select {
+// 		case x := <-ch:
+// 			fmt.Println(x)
+// 		case ch <- i:
+// 		}
+// 	}
+// }
+
+// var (
+// 	i  int
+// 	wg sync.WaitGroup
+// 	mu sync.Mutex
+// )
+
+// func add(mu *sync.Mutex) {
+// 	defer wg.Done()
+
+// 	l := 0
+// 	for range 5000 {
+// 		l++
+// 	}
+
+// 	mu.Lock()
+// 	i += l
+// 	mu.Unlock()
+
+// }
+
+// func main() {
+
+// 	l := 0
+// 	for range 10 {
+// 		fmt.Println("v", l)
+// 		l++
+// 	}
+
+// 	wg.Add(2)
+// 	go add(&mu)
+// 	go add(&mu)
+// 	wg.Wait()
+// 	fmt.Println("i", i)
+// 	fmt.Println("v", l)
+// }
+
+// func worker(ctx context.Context) {
+// 	for {
+// 		select {
+// 		case <-ctx.Done(): // 监听取消信号
+// 			fmt.Println("worker stopped")
+// 			return
+// 		default:
+// 			fmt.Println("working...")
+// 			time.Sleep(500 * time.Millisecond)
+// 		}
+// 	}
+// }
+
+// func main() {
+// 	ctx, cancel := context.WithCancel(context.Background())
+// 	go worker(ctx)
+// 	go worker(ctx)
+// 	time.Sleep(3 * time.Second)
+// 	cancel() // 触发取消
+// 	time.Sleep(200 * time.Millisecond) // 等待 worker 退出
+// }
+// 
+
+
+
+func ech(s []int) {
+	fmt.Printf("dzzz %p\n", &s)
+	for k, v := range s {
+		s[k] = v * v
+		fmt.Println(v)
+	}
+}
 
 func main() {
-	
+	s := []int{1, 2, 3}
+	ech(s)
+	fmt.Printf("mmmm %p\n", &s)
+	fmt.Println("vvvv", s)
 }
