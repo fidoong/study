@@ -204,21 +204,29 @@ import "fmt"
 // 	cancel() // 触发取消
 // 	time.Sleep(200 * time.Millisecond) // 等待 worker 退出
 // }
-// 
+//
 
+// func ech(s []int) {
+// 	fmt.Printf("dzzz %p\n", &s)
+// 	for k, v := range s {
+// 		s[k] = v * v
+// 		fmt.Println(v)
+// 	}
+// }
 
-
-func ech(s []int) {
-	fmt.Printf("dzzz %p\n", &s)
-	for k, v := range s {
-		s[k] = v * v
-		fmt.Println(v)
-	}
-}
+// func main() {
+// 	s := []int{1, 2, 3}
+// 	ech(s)
+// 	fmt.Printf("mmmm %p\n", &s)
+// 	fmt.Println("vvvv", s)
+// }
 
 func main() {
-	s := []int{1, 2, 3}
-	ech(s)
-	fmt.Printf("mmmm %p\n", &s)
-	fmt.Println("vvvv", s)
+	p := 0
+	p++
+	defer deferParams(p)
+}
+
+func deferParams(p int) {
+	fmt.Println("test111", p)
 }
